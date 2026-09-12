@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://doua54numlb54"]
+
+[ext_resource type="Script" uid="uid://d4hvimkdxmjyt" path="res://entities/player/Player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://fdeis58yafjr" path="res://weapons/base_weapon.tscn" id="2_abrql"]
+[ext_resource type="PackedScene" uid="uid://ctuovbhwql2cw" path="res://ui.tscn" id="3_sglur"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0o5fr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0o5fr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0o5fr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D" unique_id=1815039734]
+script = ExtResource("1_4flbx")
+weapon_scene = ExtResource("2_abrql")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1100186981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0o5fr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1681920097]
+mesh = SubResource("CapsuleMesh_0o5fr")
+
+[node name="Head" type="CSGBox3D" parent="." unique_id=813020710]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, -0.394)
+layers = 16
+material_override = SubResource("StandardMaterial3D_0o5fr")
+size = Vector3(0.260437, 0.26184082, 0.7324219)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=597504140]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.325, 0, 0)
+cull_mask = 1048559
+
+[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=286214215]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2744743, -0.6343584, -1.394281)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=41707449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.26415443)
+target_position = Vector3(0, 0, -99.815)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=909102716]
+
+[node name="Control" parent="Head/Camera3D/CanvasLayer" unique_id=128077287 instance=ExtResource("3_sglur")]

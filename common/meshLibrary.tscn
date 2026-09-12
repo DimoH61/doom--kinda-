@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://8i2vw7q8ouxp"]
+
+[ext_resource type="Texture2D" uid="uid://bbktoyqych2dy" path="res://Prototype textures/Dark/texture_03.png" id="1_1i0y0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umafu"]
+albedo_texture = ExtResource("1_1i0y0")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0o5fr"]
+lightmap_size_hint = Vector2i(104, 156)
+material = SubResource("StandardMaterial3D_umafu")
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wow46"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_texture = ExtResource("1_1i0y0")
+uv1_triplanar = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_0o5fr"]
+material = SubResource("StandardMaterial3D_noarx")
+left_to_right = 0.0
+size = Vector3(5, 5, 5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a0tk4"]
+points = PackedVector3Array(2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5)
+
+[node name="Node3D" type="Node3D" unique_id=991790922]
+
+[node name="basic_block" type="MeshInstance3D" parent="." unique_id=543791688]
+mesh = SubResource("BoxMesh_0o5fr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="basic_block" unique_id=115077340]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basic_block/StaticBody3D" unique_id=669397701]
+shape = SubResource("BoxShape3D_wow46")
+
+[node name="slope" type="MeshInstance3D" parent="." unique_id=1595231766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.110486, 0, 0)
+mesh = SubResource("PrismMesh_0o5fr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="slope" unique_id=435143678]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slope/StaticBody3D" unique_id=1519747604]
+shape = SubResource("ConvexPolygonShape3D_a0tk4")
