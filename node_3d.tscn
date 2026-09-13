@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjva61jbi8sjk"]
 
 [ext_resource type="Script" uid="uid://42vt56qpa0xw" path="res://Enemy.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://bxn14kwsfevms" path="res://common/components/HealthComponent.gd" id="2_noarx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0o5fr"]
 
@@ -14,3 +15,7 @@ mesh = SubResource("CapsuleMesh_0o5fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1289517251]
 shape = SubResource("CapsuleShape3D_0o5fr")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=660018531]
+script = ExtResource("2_noarx")
+metadata/_custom_type_script = "uid://bxn14kwsfevms"

@@ -1,6 +1,14 @@
 class_name Enemy
 extends CharacterBody3D
 
+@onready var health_component: HealthComponent = get_node_or_null("HealthComponent")
+
+var is_dead: bool = false
+
+func _ready() -> void:
+	if health_component:
+		health_component.died.connect(die)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -12,5 +20,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func take_damage(amount: float, knockback_force: Vector3 = Vector3.ZERO) -> void:
+func hit(knockback_force: Vector3 = Vector3.ZERO) -> void:
 	velocity += knockback_force
+
+func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	print(self, " died")
+	
+	queue_free()

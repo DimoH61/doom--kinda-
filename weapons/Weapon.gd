@@ -47,13 +47,16 @@ func shoot(ray_cast: RayCast3D) -> void:
 func _proccess_hit(ray_cast: RayCast3D) -> void:
 	if ray_cast and ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
+		var health = collider.get_node_or_null("HealthComponent") as HealthComponent
 		print(collider)
-		if collider.has_method("take_damage"):
+		if health and health.has_method("take_damage"):
 			var hit_direction: Vector3 = -ray_cast.global_transform.basis.z
-			var knockback_vector: Vector3 = hit_direction * 20.0
+			var knockback_vector: Vector3 = hit_direction * 5.0
 			
 			knockback_vector.y += 0.5
-			collider.take_damage(data.base_damage, knockback_vector)
+			health.take_damage(data.base_damage)
+			if collider.has_method("hit"):
+				collider.hit(knockback_vector)
 
 
 func reload() -> void:
