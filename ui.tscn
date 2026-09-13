@@ -1,6 +1,75 @@
 [gd_scene format=3 uid="uid://ctuovbhwql2cw"]
 
+[ext_resource type="Texture2D" uid="uid://buo1a3l7cxv23" path="res://assets/ShotGunAnimation/0000.png" id="1_gs482"]
+[ext_resource type="Texture2D" uid="uid://bjts02kr03e87" path="res://assets/ShotGunAnimation/0001.png" id="2_cxd00"]
+[ext_resource type="Texture2D" uid="uid://cvksm4tsemi5w" path="res://assets/ShotGunAnimation/0002.png" id="3_etlur"]
+[ext_resource type="Texture2D" uid="uid://wyx203d7c5pv" path="res://assets/ShotGunAnimation/0003.png" id="4_7rqds"]
+[ext_resource type="Texture2D" uid="uid://dtcf8s8sbg578" path="res://assets/ShotGunAnimation/0004.png" id="5_nvb2n"]
+[ext_resource type="Texture2D" uid="uid://cgc8hmetxko87" path="res://assets/ShotGunAnimation/0005.png" id="6_os5c7"]
+[ext_resource type="Texture2D" uid="uid://bchtasvckwi86" path="res://assets/ShotGunAnimation/0006.png" id="7_b2p7n"]
+[ext_resource type="Texture2D" uid="uid://cpgx063aghpjl" path="res://assets/ShotGunAnimation/0007.png" id="8_vkygq"]
+[ext_resource type="Texture2D" uid="uid://bvbjuoco8f1pq" path="res://assets/ShotGunAnimation/0008.png" id="9_sosvr"]
+[ext_resource type="Texture2D" uid="uid://dcloab7i6tvxx" path="res://assets/ShotGunAnimation/0009.png" id="10_ndy3v"]
+[ext_resource type="Texture2D" uid="uid://cme0imflir43u" path="res://assets/ShotGunAnimation/0010.png" id="11_x2s2p"]
+[ext_resource type="Texture2D" uid="uid://c1c1h6g0u5py4" path="res://assets/ShotGunAnimation/0011.png" id="12_v8jk5"]
+[ext_resource type="Texture2D" uid="uid://cmhcqrxjd3ajg" path="res://assets/ShotGunAnimation/0012.png" id="13_cka8k"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi4d4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0o5fr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_v8jk5")
+}],
+"loop": 1,
+"name": &"ShotGun_Idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gs482")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cxd00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_etlur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7rqds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nvb2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_os5c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b2p7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vkygq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sosvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ndy3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x2s2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v8jk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cka8k")
+}],
+"loop": 0,
+"name": &"ShotGun_shoot",
+"speed": 12.0
+}]
 
 [node name="Control" type="Control" unique_id=128077287]
 layout_mode = 3
@@ -46,3 +115,12 @@ rotation = 1.5664978
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xi4d4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632508011]
+texture_filter = 1
+position = Vector2(0.4999745, -0.49995387)
+scale = Vector2(3.7556996, 3.808139)
+sprite_frames = SubResource("SpriteFrames_0o5fr")
+animation = &"ShotGun_shoot"
+frame = 12
+frame_progress = 1.0

@@ -6,20 +6,9 @@
 [sub_resource type="Resource" id="Resource_a202f"]
 script = ExtResource("2_g61sl")
 base_damage = 50.0
-base_fire_rate = 0.1
+base_fire_rate = 1.1
 metadata/_custom_type_script = "uid://brq5vekmxss3s"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sglur"]
-no_depth_test = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_wwefr"]
-material = SubResource("StandardMaterial3D_sglur")
-size = Vector3(0.5473633, 0.7504883, 1)
 
 [node name="BaseWeapon" type="Node3D" unique_id=1114693170]
 script = ExtResource("1_o51o1")
 data = SubResource("Resource_a202f")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967579990]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22631836, -0.12475586, 0)
-mesh = SubResource("BoxMesh_wwefr")

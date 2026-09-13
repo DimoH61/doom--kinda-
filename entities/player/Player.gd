@@ -12,6 +12,7 @@ const JUMP_VELOCITY = 4.5
 @onready var camera: Camera3D = %Camera3D
 @onready var hand: Node3D = %Hand
 @onready var ray_cast: RayCast3D = $Head/Camera3D/RayCast3D
+@onready var shot_gun_sprite: AnimatedSprite2D = $Head/Camera3D/CanvasLayer/Control/ShotGunSprite
 
 
 var current_weapon: Weapon = null
@@ -41,8 +42,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and GameManager.window_has_focus:
 		camera_proccess(event)
 	
-	if event.is_action_pressed("Mouse_left_button") and current_weapon:
+	if event.is_action_pressed("Mouse_left_button") and current_weapon and current_weapon.can_shoot and current_weapon.current_ammo > 0:
 		current_weapon.shoot(ray_cast)
+		shot_gun_sprite.play("ShotGun_shoot")
 	
 	if event.is_action_pressed("reload") and current_weapon:
 		current_weapon.reload()

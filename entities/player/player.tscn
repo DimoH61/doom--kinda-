@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d4hvimkdxmjyt" path="res://entities/player/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://fdeis58yafjr" path="res://weapons/base_weapon.tscn" id="2_abrql"]
-[ext_resource type="PackedScene" uid="uid://ctuovbhwql2cw" path="res://ui.tscn" id="3_sglur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0o5fr"]
 
@@ -10,6 +9,102 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0o5fr"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi4d4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_abrql"]
+load_path = "res://.godot/imported/0011.png-e5caef1d8b585e1b10e1a6dd9a9a4a10.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sglur"]
+load_path = "res://.godot/imported/0000.png-37878afbbb7dc12ccfefdfc96ba59a38.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bls4j"]
+load_path = "res://.godot/imported/0001.png-04704997618338233528292799d80c7d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fkugw"]
+load_path = "res://.godot/imported/0002.png-27435aaab4a4eab5d6561c00084ab965.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8fjmc"]
+load_path = "res://.godot/imported/0003.png-72107e777f3fd2d858e95df9ec76d707.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qiwj3"]
+load_path = "res://.godot/imported/0004.png-e05330ea1e6e2e6388bffa1011f17789.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_26q78"]
+load_path = "res://.godot/imported/0005.png-e7b95b8aa343ee8cb2559cc080a589cd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bectd"]
+load_path = "res://.godot/imported/0006.png-8bd60b2406e6c1981fcabeac5e2da715.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wvtmh"]
+load_path = "res://.godot/imported/0007.png-f96e2a87975491a9c669d890a37a9e20.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7thud"]
+load_path = "res://.godot/imported/0008.png-e1f26cfbe02ad2354446bdc5920fab45.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a1qjk"]
+load_path = "res://.godot/imported/0009.png-636a37a2f015aa5441909152ca6381ad.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j3ovn"]
+load_path = "res://.godot/imported/0010.png-b2a7ef31949fc0188acca3454744cadd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_afbqv"]
+load_path = "res://.godot/imported/0012.png-c35b3488f23cd5cd325c76e9dff17496.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0o5fr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_abrql")
+}],
+"loop": 1,
+"name": &"ShotGun_Idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_sglur")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_bls4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_fkugw")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_8fjmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_qiwj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_26q78")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_bectd")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_wvtmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_7thud")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_a1qjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_j3ovn")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_abrql")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_afbqv")
+}],
+"loop": 0,
+"name": &"ShotGun_shoot",
+"speed": 12.0
+}]
 
 [node name="Player" type="CharacterBody3D" unique_id=1815039734]
 script = ExtResource("1_4flbx")
@@ -43,4 +138,56 @@ target_position = Vector3(0, 0, -99.815)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=909102716]
 
-[node name="Control" parent="Head/Camera3D/CanvasLayer" unique_id=128077287 instance=ExtResource("3_sglur")]
+[node name="Control" type="Control" parent="Head/Camera3D/CanvasLayer" unique_id=128077287]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Head/Camera3D/CanvasLayer/Control" unique_id=1771030647]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -9.0
+offset_right = 1.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xi4d4")
+
+[node name="Panel2" type="Panel" parent="Head/Camera3D/CanvasLayer/Control" unique_id=1555444002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -9.0
+offset_right = 1.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5664978
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xi4d4")
+
+[node name="ShotGunSprite" type="AnimatedSprite2D" parent="Head/Camera3D/CanvasLayer/Control" unique_id=1632508011]
+texture_filter = 1
+position = Vector2(0.4999745, -0.49995387)
+scale = Vector2(3.7556996, 3.808139)
+sprite_frames = SubResource("SpriteFrames_0o5fr")
+animation = &"ShotGun_shoot"
+frame = 12
+frame_progress = 1.0
