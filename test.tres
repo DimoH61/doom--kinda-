@@ -1,6 +1,6 @@
 [gd_resource type="MeshLibrary" format=3 uid="uid://b72sqiudtspc7"]
 
-[ext_resource type="Texture2D" uid="uid://bbktoyqych2dy" path="res://Prototype textures/Dark/texture_03.png" id="1_umafu"]
+[ext_resource type="Texture2D" uid="uid://bbktoyqych2dy" path="res://assets/Prototype textures/Dark/texture_03.png" id="1_umafu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
 albedo_texture = ExtResource("1_umafu")
