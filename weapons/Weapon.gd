@@ -51,9 +51,9 @@ func _proccess_hit(ray_cast: RayCast3D) -> void:
 		print(collider)
 		if health and health.has_method("take_damage"):
 			var hit_direction: Vector3 = -ray_cast.global_transform.basis.z
-			var knockback_vector: Vector3 = hit_direction * 5.0
+			var knockback_vector: Vector3 = hit_direction * 10.0
 			
-			knockback_vector.y += 0.5
+			knockback_vector.y += 1.5
 			health.take_damage(data.base_damage)
 			if collider.has_method("hit"):
 				collider.hit(knockback_vector)

@@ -5,7 +5,6 @@ class_name Player
 
 const SPEED = 6.0
 const JUMP_VELOCITY = 4.5
-const SHOT_GUN_FIRE_SOUND = preload("uid://645pfbr10q47")
 
 
 @export var weapon_scene: PackedScene
@@ -15,13 +14,14 @@ const SHOT_GUN_FIRE_SOUND = preload("uid://645pfbr10q47")
 @onready var hand: Node3D = %Hand
 @onready var ray_cast: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var shot_gun_sprite: AnimatedSprite2D = $Head/Camera3D/CanvasLayer/Control/ShotGunSprite
+@onready var audio_stream_player: AudioStreamPlayer = $Head/Camera3D/CanvasLayer/Control/AudioStreamPlayer
 
 
 
 var current_weapon: Weapon = null
 
 
-var sens: float = 0.002
+var sens: float = 0.003
 var camera_rotation_x: float = 0.0
 
 
@@ -45,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and GameManager.window_has_focus:
 		camera_proccess(event)
 	
-	if event.is_action_pressed("Mouse_left_button") and current_weapon and current_weapon.can_shoot and current_weapon.current_ammo > 0:
+	if event.is_action_pressed("Mouse_left_button") and current_weapon and current_weapon.can_shoot and current_weapon.current_ammo > 0 and shot_gun_sprite.animation == "ShotGun_Idle":
 		current_weapon.shoot(ray_cast)
 		shot_gun_sprite.play("ShotGun_shoot")
 	
@@ -94,4 +94,10 @@ func _equip_weapon(new_weapon_scene: PackedScene) -> void:
 func _on_shot_gun_sprite_frame_changed() -> void:
 	if shot_gun_sprite.animation == "ShotGun_shoot":
 		if shot_gun_sprite.frame == 2:
-			SHOT_GUN_FIRE_SOUND.
+			audio_stream_player.pitch_scale = randf_range(0.98, 1.02)
+			audio_stream_player.play()
+
+
+func _on_shot_gun_sprite_animation_finished() -> void:
+	if shot_gun_sprite.animation == "ShotGun_shoot":
+		shot_gun_sprite.play("ShotGun_Idle")

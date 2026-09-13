@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4hvimkdxmjyt" path="res://entities/player/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://fdeis58yafjr" path="res://weapons/base_weapon.tscn" id="2_abrql"]
+[ext_resource type="AudioStream" uid="uid://645pfbr10q47" path="res://assets/Audio/ShotGun_fire_sound.mp3" id="3_sglur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0o5fr"]
 
@@ -188,8 +189,11 @@ texture_filter = 1
 position = Vector2(0.4999745, -0.49995387)
 scale = Vector2(3.7556996, 3.808139)
 sprite_frames = SubResource("SpriteFrames_0o5fr")
-animation = &"ShotGun_shoot"
-frame = 12
-frame_progress = 1.0
+animation = &"ShotGun_Idle"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head/Camera3D/CanvasLayer/Control" unique_id=1552319479]
+stream = ExtResource("3_sglur")
+volume_db = -7.298
+
+[connection signal="animation_finished" from="Head/Camera3D/CanvasLayer/Control/ShotGunSprite" to="." method="_on_shot_gun_sprite_animation_finished"]
 [connection signal="frame_changed" from="Head/Camera3D/CanvasLayer/Control/ShotGunSprite" to="." method="_on_shot_gun_sprite_frame_changed"]
