@@ -191,3 +191,5 @@ sprite_frames = SubResource("SpriteFrames_0o5fr")
 animation = &"ShotGun_shoot"
 frame = 12
 frame_progress = 1.0
+
+[connection signal="frame_changed" from="Head/Camera3D/CanvasLayer/Control/ShotGunSprite" to="." method="_on_shot_gun_sprite_frame_changed"]

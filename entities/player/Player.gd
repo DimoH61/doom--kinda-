@@ -5,6 +5,8 @@ class_name Player
 
 const SPEED = 6.0
 const JUMP_VELOCITY = 4.5
+const SHOT_GUN_FIRE_SOUND = preload("uid://645pfbr10q47")
+
 
 @export var weapon_scene: PackedScene
 
@@ -13,6 +15,7 @@ const JUMP_VELOCITY = 4.5
 @onready var hand: Node3D = %Hand
 @onready var ray_cast: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var shot_gun_sprite: AnimatedSprite2D = $Head/Camera3D/CanvasLayer/Control/ShotGunSprite
+
 
 
 var current_weapon: Weapon = null
@@ -86,3 +89,9 @@ func _equip_weapon(new_weapon_scene: PackedScene) -> void:
 	if instance is Weapon:
 		current_weapon = instance
 		hand.add_child(current_weapon)
+
+
+func _on_shot_gun_sprite_frame_changed() -> void:
+	if shot_gun_sprite.animation == "ShotGun_shoot":
+		if shot_gun_sprite.frame == 2:
+			SHOT_GUN_FIRE_SOUND.

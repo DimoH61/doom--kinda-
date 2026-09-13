@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_a202f"]
 script = ExtResource("2_g61sl")
 base_damage = 50.0
-base_fire_rate = 1.1
+base_fire_rate = 1.02
 metadata/_custom_type_script = "uid://brq5vekmxss3s"
 
 [node name="BaseWeapon" type="Node3D" unique_id=1114693170]
