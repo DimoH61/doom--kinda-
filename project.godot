@@ -73,6 +73,7 @@ reload={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=18.527
 common/physics_interpolation=true
 
 [rendering]

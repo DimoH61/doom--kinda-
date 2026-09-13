@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://1k72cmhrpi4a"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0o5fr"]
+use_rotation_3d = true
+rotation_3d_min = Vector3(0, 0, 0)
+rotation_3d_max = Vector3(0, 0, 0)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 10.75
+initial_velocity_max = 59.14
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6u15"]
+albedo_color = Color(0.8720229, 0, 0.17643845, 1)
+emission_enabled = true
+emission_energy_multiplier = 1.92
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ru0vy"]
+material = SubResource("StandardMaterial3D_d6u15")
+
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=203059659]
+emitting = false
+lifetime = 0.12
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0o5fr")
+draw_pass_1 = SubResource("QuadMesh_ru0vy")

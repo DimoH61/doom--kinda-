@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://42vt56qpa0xw" path="res://Enemy.gd" id="1_a202f"]
 [ext_resource type="Script" uid="uid://bxn14kwsfevms" path="res://common/components/HealthComponent.gd" id="2_noarx"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb02x"]
+albedo_color = Color(0.82, 0.71066666, 0, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0o5fr"]
+material = SubResource("StandardMaterial3D_pb02x")
+height = 1.56
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0o5fr"]
 

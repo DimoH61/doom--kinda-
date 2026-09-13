@@ -28,6 +28,7 @@ var camera_rotation_x: float = 0.0
 func _ready() -> void:
 	if weapon_scene:
 		_equip_weapon(weapon_scene)
+	shot_gun_sprite.play("ShotGun_Idle")
 
 
 func _physics_process(delta: float) -> void:
@@ -48,6 +49,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Mouse_left_button") and current_weapon and current_weapon.can_shoot and current_weapon.current_ammo > 0 and shot_gun_sprite.animation == "ShotGun_Idle":
 		current_weapon.shoot(ray_cast)
 		shot_gun_sprite.play("ShotGun_shoot")
+		var hit_direction: Vector3 = ray_cast.global_transform.basis.z
+		velocity += hit_direction * 8
 	
 	if event.is_action_pressed("reload") and current_weapon:
 		current_weapon.reload()
