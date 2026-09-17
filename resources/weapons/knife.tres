@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapons" format=3 uid="uid://c1oieplawq2k1"]
+
+[ext_resource type="PackedScene" uid="uid://e67b4ntx4yax" path="res://weapons/scenes/knife.tscn" id="1_ks10t"]
+[ext_resource type="Script" uid="uid://djp3k1s3hrf06" path="res://common/weapon_data.gd" id="1_taet3"]
+
+[resource]
+script = ExtResource("1_taet3")
+damage = 52.0
+attack_cooldown = 1.0
+knockback = 2.0
+self_knockback = 4.0
+hit_range = 3.0
+scene = ExtResource("1_ks10t")
+screenshake = 5.0
+metadata/_custom_type_script = "uid://djp3k1s3hrf06"

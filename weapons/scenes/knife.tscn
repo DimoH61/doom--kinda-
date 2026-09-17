@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://e67b4ntx4yax"]
+
+[ext_resource type="Texture2D" uid="uid://cd5m56lcp4ni7" path="res://assets/KnifeAnimations/Attack/0000.png" id="1_mfnse"]
+[ext_resource type="Texture2D" uid="uid://b3woildx2i0xt" path="res://assets/KnifeAnimations/Attack/0001.png" id="2_4ekri"]
+[ext_resource type="Texture2D" uid="uid://cmj5soub5tpa3" path="res://assets/KnifeAnimations/Attack/0002.png" id="3_fa4qq"]
+[ext_resource type="Texture2D" uid="uid://cnu1ya3tx50tl" path="res://assets/KnifeAnimations/Attack/0003.png" id="4_34gpd"]
+[ext_resource type="Texture2D" uid="uid://jr0v8rudpcp0" path="res://assets/KnifeAnimations/Attack/0004.png" id="5_lhq10"]
+[ext_resource type="Texture2D" uid="uid://c2idrdpxdnie6" path="res://assets/KnifeAnimations/Attack/0005.png" id="6_cgs13"]
+[ext_resource type="Texture2D" uid="uid://ib0kyjn57ffp" path="res://assets/KnifeAnimations/Attack/0006.png" id="7_sfq3a"]
+[ext_resource type="Texture2D" uid="uid://dv85o1n80j26f" path="res://assets/KnifeAnimations/Attack/0007.png" id="8_bn2bc"]
+[ext_resource type="Texture2D" uid="uid://51j3p3cvspmv" path="res://assets/KnifeAnimations/Attack/0008.png" id="9_gl2a3"]
+[ext_resource type="Texture2D" uid="uid://be1l2ftjlawk7" path="res://assets/KnifeAnimations/Idle/0000.png" id="10_yqx6h"]
+[ext_resource type="Texture2D" uid="uid://xb1nse0ybm5p" path="res://assets/KnifeAnimations/Idle/0001.png" id="11_1mgbi"]
+[ext_resource type="Texture2D" uid="uid://bkwvqkybtdufb" path="res://assets/KnifeAnimations/Idle/0002.png" id="12_hg2pp"]
+[ext_resource type="Texture2D" uid="uid://4tcmg86tn8sx" path="res://assets/KnifeAnimations/Idle/0003.png" id="13_206xg"]
+[ext_resource type="Texture2D" uid="uid://bih5a2yb61doy" path="res://assets/KnifeAnimations/Idle/0004.png" id="14_12eyp"]
+[ext_resource type="Texture2D" uid="uid://ds2dcxtht61fr" path="res://assets/KnifeAnimations/Idle/0005.png" id="15_fqvcm"]
+[ext_resource type="Texture2D" uid="uid://gbeidkd4jhwg" path="res://assets/KnifeAnimations/Idle/0006.png" id="16_ftlg4"]
+[ext_resource type="Texture2D" uid="uid://dr1hxj64bvase" path="res://assets/KnifeAnimations/Idle/0007.png" id="17_1pfth"]
+[ext_resource type="Texture2D" uid="uid://04w8hu4hfgl" path="res://assets/KnifeAnimations/Idle/0008.png" id="18_1sxh2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orkse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mfnse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ekri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fa4qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_34gpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lhq10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cgs13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sfq3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bn2bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gl2a3")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yqx6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1mgbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hg2pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_206xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_12eyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fqvcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ftlg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1pfth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_1sxh2")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Weapon" type="AnimatedSprite2D" unique_id=719107279]
+sprite_frames = SubResource("SpriteFrames_orkse")
+animation = &"attack"
+frame = 5
+frame_progress = 0.07205573
