@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 var window_has_focus: bool = true
 
