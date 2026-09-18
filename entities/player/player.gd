@@ -1,4 +1,4 @@
-class_name layer
+class_name layer # why layer?
 
 extends CharacterBody3D
 
@@ -7,7 +7,7 @@ var speed = 6.0
 var jump_velocity = 7.5
 
 @export var WEAPON_DATA : Weapons
-var current_weapon_instance
+var current_weapon_instance: AnimatedSprite2D
 
 @onready var UI: Control = $Head/Camera3D/UI_Canvas/UI
 
@@ -22,18 +22,20 @@ var current_weapon_instance
 #@onready var knife_sprite: AnimatedSprite2D = $Head/Camera3D/CanvasLayer/Control/KnifeSprite
 
 
-var sens: float = 0.001
+var sens: float = 0.002
 
 
 func _ready() -> void:
-	if WEAPON_DATA != null or WEAPON_DATA.scene != null:
-		var weapon_instance = WEAPON_DATA.scene.instantiate()
-		UI.add_child(weapon_instance)
-		current_weapon_instance = weapon_instance
-		weapon_instance.scale = Vector2(0.6, 0.6)
-		weapon_instance.play("idle")
-	else:
+	if WEAPON_DATA == null or WEAPON_DATA.scene == null:
 		push_error("weapon data missing")
+
+	current_weapon_instance = WEAPON_DATA.scene.instantiate()
+	
+	UI.add_child(current_weapon_instance)
+	current_weapon_instance.scale = Vector2(0.6, 0.6)
+	current_weapon_instance.play("idle")
+
+
 
 
 
@@ -45,15 +47,16 @@ func _physics_process(delta: float) -> void:
 	if GameManager.window_has_focus:
 		movement_proccess(delta)
 	
+	check_attack_input()
+	
 
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and GameManager.window_has_focus:
 		camera_proccess(event)
-	
-	if event.is_action_pressed("attack") and attack_cooldown.is_stopped():
-		current_weapon_instance.play("attack")
+		
+		# attack is in a separated function because it is needed in _physics_process
 		
 		#var hit_direction: Vector3 = ray_cast.global_transform.basis.z
 		#velocity += hit_direction * 8
@@ -88,3 +91,11 @@ func camera_proccess(event: InputEvent) -> void:
 	rotate_y(event.relative.x * -sens)
 	camera.rotation.x += -(event.relative.y * sens)
 	camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))
+
+
+
+func check_attack_input() -> void:
+	if Input.is_action_pressed("attack") and attack_cooldown.is_stopped():
+		current_weapon_instance.stop()
+		current_weapon_instance.play("attack")
+		attack_cooldown.start()

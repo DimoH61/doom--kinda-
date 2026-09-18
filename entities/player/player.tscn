@@ -322,6 +322,8 @@ volume_db = -7.298
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1935162887]
 process_callback = 0
+wait_time = 0.123
+one_shot = true
 
 [connection signal="animation_finished" from="Head/Camera3D/UI_Canvas/UI/ShotgunPreview" to="." method="_on_shot_gun_sprite_animation_finished"]
 [connection signal="frame_changed" from="Head/Camera3D/UI_Canvas/UI/ShotgunPreview" to="." method="_on_shot_gun_sprite_frame_changed"]

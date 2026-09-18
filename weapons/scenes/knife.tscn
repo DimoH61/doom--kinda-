@@ -49,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_gl2a3")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -89,5 +89,3 @@ animations = [{
 [node name="Weapon" type="AnimatedSprite2D" unique_id=719107279]
 sprite_frames = SubResource("SpriteFrames_orkse")
 animation = &"attack"
-frame = 5
-frame_progress = 0.07205573

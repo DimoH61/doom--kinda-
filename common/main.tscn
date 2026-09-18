@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dxnbvdesferij" path="res://common/enemy_spawner.gd" id="3_ppiv4"]
 [ext_resource type="PackedScene" uid="uid://cjva61jbi8sjk" path="res://entities/Enemy/enemy.tscn" id="4_fkdi7"]
 [ext_resource type="Script" uid="uid://bcu20enwn0ps6" path="res://common/map_generator.gd" id="5_ppiv4"]
-[ext_resource type="Resource" uid="uid://c1oieplawq2k1" path="res://resources/weapons/knife.tres" id="6_cp6g8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ppiv4"]
 noise_type = 0
@@ -51,7 +50,6 @@ shadow_blur = 10.0
 
 [node name="Player" parent="." unique_id=1815039734 instance=ExtResource("1_83rqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11837065, 1, 0.042402267)
-WEAPON_DATA = ExtResource("6_cp6g8")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=19108548]
 mesh_library = ExtResource("2_pb02x")

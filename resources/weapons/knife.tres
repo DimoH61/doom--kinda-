@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_taet3")
 damage = 52.0
-attack_cooldown = 1.0
+attack_cooldown = 0.34
 knockback = 2.0
 self_knockback = 4.0
 hit_range = 3.0
