@@ -7,6 +7,7 @@ extends Node
 @export_range(0.01, 100.0) var spawn_rate: float = 1.0
 @export_range(0.0, 1.0) var spawn_offset_range: float = 0.4
 @export var enemy_lifetime: float = 10.0
+@export var player: layer
 
 func _ready() -> void:
 	if not map_generator or not enemy_scene:
@@ -47,7 +48,8 @@ func spawn_enemy() -> void:
 		rand_z * cell_size.z + (cell_size.z / 2.0) + offset_z
 	)
 	
-	var new_enemy: Node3D = enemy_scene.instantiate() as Node3D
+	var new_enemy: Enemy = enemy_scene.instantiate() as Node3D
+	new_enemy.player = player
 	get_parent().add_child(new_enemy)
 	new_enemy.global_position = spawn_pos
 	

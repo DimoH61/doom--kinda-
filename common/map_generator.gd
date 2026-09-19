@@ -1,5 +1,3 @@
-@tool
-
 @icon("uid://7svswgd83epj")
 class_name MapGenerator
 extends Node

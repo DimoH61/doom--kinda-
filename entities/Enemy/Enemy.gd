@@ -1,7 +1,10 @@
 class_name Enemy
 extends CharacterBody3D
 
+enum STATES { IDLE, MOVE_TO_PLAYER }
+
 @onready var health_component: HealthComponent = get_node_or_null("HealthComponent")
+var player: layer
 
 var is_dead: bool = false
 
@@ -16,6 +19,12 @@ func _physics_process(delta: float) -> void:
 	# Плавное затухание отталкивания по горизонтали
 	velocity.x = move_toward(velocity.x, 0, 10.0 * delta)
 	velocity.z = move_toward(velocity.z, 0, 10.0 * delta)
+	
+	if player:
+		var target_vec = player.global_position
+		target_vec.y = global_position.y
+		look_at(target_vec, Vector3(0, 1, 0))
+		
 
 	move_and_slide()
 

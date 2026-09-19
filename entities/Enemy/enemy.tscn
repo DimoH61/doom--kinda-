@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://cjva61jbi8sjk"]
 
 [ext_resource type="Script" uid="uid://42vt56qpa0xw" path="res://entities/Enemy/Enemy.gd" id="1_a202f"]
+[ext_resource type="Texture2D" uid="uid://g1rhyynt1u12" path="res://assets/Prototype textures/Orange/texture_03.png" id="2_mwd7m"]
 [ext_resource type="Script" uid="uid://bxn14kwsfevms" path="res://common/components/HealthComponent.gd" id="2_noarx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2pt0"]
+albedo_texture = ExtResource("2_mwd7m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb02x"]
 albedo_color = Color(0.82, 0.71066666, 0, 1)
@@ -16,11 +20,18 @@ height = 1.56
 script = ExtResource("1_a202f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=913547828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_o2pt0")
 mesh = SubResource("CapsuleMesh_0o5fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1289517251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_0o5fr")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=660018531]
 script = ExtResource("2_noarx")
 metadata/_custom_type_script = "uid://bxn14kwsfevms"
+
+[node name="Head" type="CSGBox3D" parent="." unique_id=1464377632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3456193, -0.44935)
+size = Vector3(0.7548828, 0.15136719, 0.29882813)
